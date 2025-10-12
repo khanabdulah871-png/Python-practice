@@ -1,0 +1,205 @@
+#student_1=['Abdullah_Khan', 12]
+#student_2=['Ali', 9]
+
+#print(f'{student_1[0]} is in class {student_1[1]}')
+#print(f'{student_2[0]} is in class {student_2[1]}')
+
+#student_1.append('Lahore')
+#print(student_1)
+
+
+# using oop
+#class student:
+#   def __init__(self, name, grade, percentage, city):
+#      self.name = name
+#        self.grade = grade
+#        self.percentage = percentage
+#        self.city = city
+
+#    def student_details(self):
+#        print(f"{self.name} is in class {self.grade} with {self.percentage}%")
+    
+
+    #name ='Abdullah Khan'
+    #grade = 12
+    #city = 'Lahore'
+
+#student_1 = student('Abdullah khan', 12, 95, 'Lahore')
+#print(student_1.name, student_1.grade, student_1.city)
+
+#student_2 = student('Ali', 9, 67, 'Karachi')
+#print(student_2.name, student_2.grade, student_2.city)
+
+#student_1.student_details()
+#student_2.student_details()
+
+
+#print(student_1.__dict__)
+
+
+# modify object property
+#print(student_1.percentage)
+#student_1.percentage = 89
+#print(student_1.percentage)
+
+
+# deletion of object property
+#print(student_1.__dict__)
+#del student_1.percentage
+#print(student_1.__dict__)
+
+# deletion of object
+#del student_1
+#print(student_1)
+
+
+
+#class student:
+#   def __init__(self, name, grade, percentage, city, team):
+#        self.name = name
+#        self.grade = grade
+#        self.percentage = percentage
+#        self.city = city
+#        self.team = team
+
+#   def student_details(self):
+#        print(f"{self.name} is in class {self.grade} with {self.percentage}% and playing for team {self.team}")
+
+#team1 = 'A'
+#team2 = 'B'
+
+
+
+#student_1 = student('Abdullah khan', 12, 95, 'Lahore', team1)
+#print(student_1.name, student_1.grade, student_1.city, student_1.team)
+
+#student_2 = student('Ali', 9, 67, 'Karachi', team2)
+#print(student_2.name, student_2.grade, student_2.city, student_2.team)
+
+#print(student_2.team)
+#student_1.student_details()
+#student_2.student_details()
+
+
+# Abstraction
+# Encapsulation
+# Inheritence
+# polymorphism
+
+
+# Abstraction
+#class student:
+#   def __init__(self, name, grade, percentage, city):
+#        self.name = name
+#        self.grade = grade
+#        self.percentage = percentage
+#        self.city = city
+#   def student_details(self):
+#        print(f"{self.name} is in class {self.grade} with {self.percentage+2}%")
+    
+
+#student_1 = student('Abdullah khan', 12, 95, 'Lahore',)
+#print(student_1.name, student_1.grade, student_1.city,)
+
+#student_2 = student('Ali', 9, 67, 'Karachi',)
+#print(student_2.name, student_2.grade, student_2.city,)
+
+
+#student_1.student_details()
+#student_2.student_details()
+
+# Encapsulation
+
+#class student:
+#   def __init__(self, name, grade, percentage, city):
+#        self.name = name
+#        self.grade = grade
+#        self.__percentage = percentage  # Private Variable
+#        self.city = city
+
+#   def  get_percentage(self):
+#       return self.__percentage
+#   def student_details(self):
+#        print(f"{self.name} is in class {self.grade} with {self.percentage}%")
+    
+
+#student_1 = student('Abdullah khan', 12, 95, 'Lahore',)
+#student_2 = student('Ali', 9, 67, 'Karachi',)
+
+
+#print(student_1.percentage) giving error
+#print(student_2.__percentage) giving error
+
+#print(student_1.get_percentage())
+
+
+# Inheritence
+# allows one class (child) to reuse th prop and method of another class(parent)
+# parent class
+#class student:
+#    def __init__(self, name, grade, percentage):
+#        self.name = name
+#        self.grade = grade
+#        self.percentage = percentage
+ #   def student_details(self):
+  #      print(f"{self.name} is in class {self.grade} with {self.percentage}%")
+    
+# object-instance of class
+#student_1 = student('Abdullah khan', 12, 95)
+#student_2 = student('Ahmed', 9, 67)
+
+# child class
+#class Graduatestudent(student):
+ #    def __init__(self, name, grade, percentage, batch):  # old parameters from parents class and new parameters in child class
+  #       super().__init__(name, grade, percentage)  # calling parent class init
+   #      self.name = name
+    #     self.grade = grade
+     #    self.batch = batch # new attribute in child class
+     #def student_details(self):
+      #   super().student_details()
+       #  print(f'batch: {self.batch}')
+#object
+#Grad_student_1 = Graduatestudent("Abdullah", 12, 96, "2018")
+
+#Grad_student_1.student_details()
+
+#print(Grad_student_1.name)
+#print(Grad_student_1.grade)
+#print(Grad_student_1.percentage)
+#print(Grad_student_1.batch)
+
+
+# polymorphism
+# allows method in different classes to have same name but different behaviour depending on objects.
+
+class student:
+   def __init__(self, name, grade, percentage):
+        self.name = name
+        self.grade = grade
+        self.percentage = percentage
+
+   def student_details(self):
+        print(f"{self.name} is in class {self.grade} with {self.percentage}%")
+
+
+student_1 = student('Abdullah khan', 12, 95)
+student_2 = student('Ali', 9, 67)
+
+class Graduatestudent(student):
+     def __init__(self, name, grade, percentage, batch):  
+         super().__init__(name, grade, percentage)
+         self.batch = batch 
+
+     def student_details(self):
+         print(f'{self.name} is in class {self.grade} with {self.percentage}% and from batch {self.batch}')
+#object
+# student class object
+student_1 = student('Abdullah khan', 12, 95)
+
+# Graduate class object
+Grad_student_1 = Graduatestudent("Abdullah", 12, 96, "2018")
+
+student_1.student_details()
+Grad_student_1.student_details()
+
+
